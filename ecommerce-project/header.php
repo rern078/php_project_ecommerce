@@ -267,7 +267,33 @@ foreach ($result as $row) {
 							<?php
 							}
 							?>
+							<div class="dropdown_lang">
+								<?php
+								$lang_arr = ['en', 'ca', 'cn', 'vn', 'th', 'id', 'kr', 'jp'];
+								$lang_arr_name = ['English' => 'en', 'cambodia' => 'ca', 'china' => 'cn', 'vietnam' => 'vn', 'thailand' => 'th', 'indonesia' => 'id', 'korea' => 'kr', 'japan' => 'jp'];
+								$current_lang = isset($_GET['lang']) ? $_GET['lang'] : 'en';
+								// Check if current language is in the allowed list
+								if (!in_array($current_lang, $lang_arr)) {
+									$current_lang = 'en';
+								}
+								?>
+
+								<div class="dropdown_lang">
+									<div class="dropbtn_lang">
+										<img class="img_flag" src="../../assets/img/flag/<?php echo $current_lang; ?>.png" alt="">
+									</div>
+									<div class="dropdown-content-lang">
+										<?php
+										foreach ($lang_arr as $lang_code) { ?>
+											<a href="?lang=<?php echo $lang_code; ?>" lang="<?php echo $lang_code; ?>">
+												<img class="img_flag" src="../../assets/img/flag/<?php echo $lang_code; ?>.png" alt="">
+											</a>
+										<?php } ?>
+									</div>
+								</div>
+							</div>
 						</ul>
+
 					</div>
 				</div>
 			</div>
@@ -300,27 +326,27 @@ foreach ($result as $row) {
 						?>
 
 						<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_18; ?> (<?php echo LANG_VALUE_1; ?><?php
-																																			if (isset($_SESSION['cart_p_id'])) {
-																																				$table_total_price = 0;
-																																				$i = 0;
-																																				foreach ($_SESSION['cart_p_qty'] as $key => $value) {
-																																					$i++;
-																																					$arr_cart_p_qty[$i] = $value;
-																																				}
-																																				$i = 0;
-																																				foreach ($_SESSION['cart_p_current_price'] as $key => $value) {
-																																					$i++;
-																																					$arr_cart_p_current_price[$i] = $value;
-																																				}
-																																				for ($i = 1; $i <= count($arr_cart_p_qty); $i++) {
-																																					$row_total_price = $arr_cart_p_current_price[$i] * $arr_cart_p_qty[$i];
-																																					$table_total_price = $table_total_price + $row_total_price;
-																																				}
-																																				echo $table_total_price;
-																																			} else {
-																																				echo '0.00';
-																																			}
-																																			?>)</a></li>
+																										if (isset($_SESSION['cart_p_id'])) {
+																											$table_total_price = 0;
+																											$i = 0;
+																											foreach ($_SESSION['cart_p_qty'] as $key => $value) {
+																												$i++;
+																												$arr_cart_p_qty[$i] = $value;
+																											}
+																											$i = 0;
+																											foreach ($_SESSION['cart_p_current_price'] as $key => $value) {
+																												$i++;
+																												$arr_cart_p_current_price[$i] = $value;
+																											}
+																											for ($i = 1; $i <= count($arr_cart_p_qty); $i++) {
+																												$row_total_price = $arr_cart_p_current_price[$i] * $arr_cart_p_qty[$i];
+																												$table_total_price = $table_total_price + $row_total_price;
+																											}
+																											echo $table_total_price;
+																										} else {
+																											echo '0.00';
+																										}
+																										?>)</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 search-area">

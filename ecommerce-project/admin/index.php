@@ -178,7 +178,6 @@ $total_order_complete_shipping_pending = $statement->rowCount();
 				<div class="small-box bg-olive">
 				  <div class="inner">
 					<h3><?php echo $total_top_category; ?></h3>
-  
 					<p>Top Categories</p>
 				  </div>
 				  <div class="icon">
