@@ -14,3 +14,8 @@
 
 Email   : admin@mail.com
 Password: Password@123
+
+**Customer Login Details**
+
+Email   : chamrern1@gmail.com
+Password: 123456789
