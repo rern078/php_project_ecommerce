@@ -63,6 +63,8 @@ if ($customer_id > 0) {
             <tbody>
                   <?php
                   $totalAmount = 0;
+                  $currency_arr = ['$', 'Riel', '€', '£', '¥', '₣', '₹'];
+                  $currency_arr_full = ['Dollar' => '$', 'Riel' => 'រៀល', 'Euro' => '€', 'Pound' => '£', 'Yen' => '¥', 'Franc' => '₣', 'Rupee' => '₹'];
                   if (count($result) > 0) {
                         foreach ($result as $row) {
                               $totalAmount += $row['paid_amount'];
