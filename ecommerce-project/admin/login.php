@@ -8,14 +8,11 @@ $csrf = new CSRF_Protect();
 $error_message = '';
 
 if (isset($_POST['form1'])) {
-
 	if (empty($_POST['email']) || empty($_POST['password'])) {
 		$error_message = 'Email and/or Password can not be empty<br>';
 	} else {
-
 		$email = strip_tags($_POST['email']);
 		$password = strip_tags($_POST['password']);
-
 		$statement = $pdo->prepare("SELECT * FROM tbl_user WHERE email=? AND status=?");
 		$statement->execute(array($email, 'Active'));
 		$total = $statement->rowCount();
@@ -26,11 +23,9 @@ if (isset($_POST['form1'])) {
 			foreach ($result as $row) {
 				$row_password = $row['password'];
 			}
-
 			if ($row_password != md5($password)) {
 				$error_message .= 'Password does not match<br>';
 			} else {
-
 				$_SESSION['user'] = $row;
 				header("location: index.php");
 			}
@@ -62,7 +57,6 @@ if (isset($_POST['form1'])) {
 </head>
 
 <body class="hold-transition login-page sidebar-mini">
-
 	<div class="login-box">
 		<div class="login-logo">
 			<b>Admin Panel</b>
@@ -93,8 +87,6 @@ if (isset($_POST['form1'])) {
 			</form>
 		</div>
 	</div>
-
-
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.dataTables.min.js"></script>
@@ -111,7 +103,6 @@ if (isset($_POST['form1'])) {
 	<script src="js/jquery.slimscroll.min.js"></script>
 	<script src="js/app.min.js"></script>
 	<script src="js/demo.js"></script>
-
 </body>
 
 </html>

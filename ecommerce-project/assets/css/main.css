@@ -2273,3 +2273,12 @@ div.pagination span.disabled {
 }
 
 /* end dropdown lang  */
+
+
+#st-2 .st-toggle{
+  height: 50px;
+}
+
+.st-toggle img{
+  margin: 15px 0;
+}

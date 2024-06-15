@@ -3,7 +3,7 @@
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
 $statement->execute();
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);                           
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 foreach ($result as $row) {
     $banner_forget_password = $row['banner_forget_password'];
 }
@@ -22,7 +22,7 @@ foreach ($result as $row) {
                 <div class="user-content">
                     <?php echo LANG_VALUE_146; ?><br><br>
                     <a href="<?php echo BASE_URL; ?>login.php" style="color:#e4144d;font-weight:bold;"><?php echo LANG_VALUE_11; ?></a>
-                </div>                
+                </div>
             </div>
         </div>
     </div>

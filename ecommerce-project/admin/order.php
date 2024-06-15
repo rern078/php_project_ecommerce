@@ -267,6 +267,7 @@ if ($success_message != '') {
                                     </td>
                                     <td>
                                         <a href="#" class="btn btn-danger btn-xs" data-href="order-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete" style="width:100%;">Delete</a>
+                                        <a href="order-print.php?id=<?php echo $row['customer_id']; ?>" class="btn btn-warning btn-xs" style="width:100%;">Print</a>
                                     </td>
                                 </tr>
                             <?php
