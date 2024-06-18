@@ -240,7 +240,37 @@ if ($success_message != '') {
                                             <b>Transaction Information:</b> <br><?php echo $row['bank_transaction_info']; ?><br>
                                         <?php endif; ?>
                                     </td>
-                                    <td>$<?php echo $row['paid_amount']; ?></td>
+                                    <?php
+                                    $currency_arr = ['$', '៛', '€', '£', '¥', '₣', '₹'];
+                                    $selectedCurrency = '$';
+                                    $conversion_rates = [
+                                        '$' => 1,    // 1 USD
+                                        '៛' => 4100, // 1 KHR = 4100 USD (example rate)
+                                        '€' => 4000, // 1 EUR = 4000 USD (example rate)
+                                        '£' => 0.8,  // 1 GBP = 0.8 USD (example rate)
+                                        '¥' => 110,  // 1 JPY = 110 USD (example rate)
+                                        '₣' => 1.05, // 1 CHF = 1.05 USD (example rate)
+                                        '₹' => 75,   // 1 INR = 75 USD (example rate)
+                                    ];
+
+                                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                        if (isset($_POST['currency'])) {
+                                            $selectedCurrency = $_POST['currency'];
+                                        }
+                                    }
+                                    if (isset($conversion_rates[$selectedCurrency])) {
+                                        $converted_amount = $conversion_rates[$selectedCurrency] * $row['paid_amount'];
+                                    } else {
+                                        $converted_amount = $row['paid_amount'];
+                                    }
+                                    ?>
+                                    <td>
+                                        <?php if (!empty($selectedCurrency)) : ?>
+                                            <!-- <?php echo $selectedCurrency . $row['paid_amount']; ?> -->
+                                            <?php echo $selectedCurrency . ' ' . number_format($converted_amount, 2); ?>
+                                        <?php endif; ?>
+                                    </td>
+                                    <!-- <td>$<?php echo $row['paid_amount']; ?></td> -->
                                     <td>
                                         <?php echo $row['payment_status']; ?>
                                         <br><br>
@@ -265,9 +295,16 @@ if ($success_message != '') {
                                         }
                                         ?>
                                     </td>
-                                    <td>
+                                    <td class="m-2">
                                         <a href="#" class="btn btn-danger btn-xs" data-href="order-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete" style="width:100%;">Delete</a>
-                                        <a href="order-print.php?id=<?php echo $row['customer_id']; ?>" class="btn btn-warning btn-xs" style="width:100%;">Print</a>
+                                        <a href="order-print.php?id=<?php echo $row['customer_id']; ?>" class="btn btn-warning btn-xs" style="width:100%; margin-top:5px;margin-bottom:5px">Print</a>
+                                        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                                            <select name="currency" class="btn btn-success btn-xs" style="width:100%;" onchange="this.form.submit()">
+                                                <?php foreach ($currency_arr as $currency_symbol) : ?>
+                                                    <option value="<?php echo $currency_symbol; ?>" <?php echo ($selectedCurrency === $currency_symbol) ? 'selected' : ''; ?>><?php echo $currency_symbol; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </form>
                                     </td>
                                 </tr>
                             <?php
