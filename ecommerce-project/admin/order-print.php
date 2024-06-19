@@ -1,9 +1,6 @@
 <?php
 include 'inc/config.php';
 
-// $sql = "SELECT * FROM tbl_payment"; // Your SQL query here
-// $result = $pdo->query($sql);
-
 $customer_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 if ($customer_id > 0) {
@@ -26,6 +23,9 @@ if ($customer_id > 0) {
       th {
             padding: 5px !important;
             font-size: 12px;
+      }
+      .no-print{
+            padding: 20px;
       }
 </style>
 <script>
