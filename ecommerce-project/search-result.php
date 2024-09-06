@@ -39,7 +39,6 @@ foreach ($result as $row) {
         <div class="row">
             <div class="col-md-12">
                 <div class="product product-cat">
-
                     <div class="row">
                         <?php
                         $search_text = '%' . $search_text . '%';
@@ -244,9 +243,7 @@ foreach ($result as $row) {
                         endif;
                         ?>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>

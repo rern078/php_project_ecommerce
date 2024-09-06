@@ -1,0 +1,1 @@
+<h1>Footer Ecommerce 2</h1>
