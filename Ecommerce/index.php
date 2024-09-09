@@ -11,7 +11,7 @@ if ($_GET['ecommerce'] != '' && $_GET['auth'] == 'admin') {
 }
 
 if ($_SERVER['HTTP_HOST'] == '10.0.0.89:2036') {
-      $_SESSION['dir'] = 'shopify';
+      $_SESSION['dir'] = 'taobao';
       // $_SESSION['web_id'] =2000;
 } elseif ($_SERVER['HTTP_HOST'] == '10.0.0.87:2036') {
       $_SESSION['dir'] = 'shopify';

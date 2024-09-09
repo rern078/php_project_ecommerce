@@ -101,6 +101,16 @@ function getPageFile($pageName)
             case 'admincategorydetail':
                   $pagefile = "resources/admincategorydetail/admincategorydetail.php";
                   break;
+            case 'shop':
+                  $pagefile = "resources/views/shop/shop_grid.php";
+                  break;
       }
       return $pagefile;
+}
+function pageUrl($pageName)
+{
+      $pageFilePath = getPageFile($pageName);
+
+      $baseUrl = "http://10.0.0.89:2036/";
+      return $baseUrl . $pageFilePath;
 }

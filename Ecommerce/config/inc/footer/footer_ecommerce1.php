@@ -104,3 +104,13 @@
 
 <!-- Back to Top -->
 <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+<!-- Owl Carousel CSS -->
+<script src="<?php echo $IncPath ?>/content/<?php echo $ecommerce ?>/js/main.js" type="text/javascript"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> -->
+<!-- <link rel="stylesheet" href="<?php echo $IncPath ?>/content/<?php echo $ecommerce ?>/js/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="<?php echo $IncPath ?>/content/<?php echo $ecommerce ?>/js/assets/owl.theme.default.min.css">
+<script src="<?php echo $IncPath ?>/content/<?php echo $ecommerce ?>/js/owl.carousel.min.js" type="text/javascript"></script> -->
+<script src="<?php echo $IncPath ?>/content/<?php echo $ecommerce ?>/js/jqBootstrapValidation.min.js" type="text/javascript"></script>
+<script src="<?php echo $IncPath ?>/content/<?php echo $ecommerce ?>/js/easing.min.js" type="text/javascript"></script>
