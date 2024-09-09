@@ -24,7 +24,8 @@ if ($customer_id > 0) {
             padding: 5px !important;
             font-size: 12px;
       }
-      .no-print{
+
+      .no-print {
             padding: 20px;
       }
 </style>

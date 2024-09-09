@@ -1201,7 +1201,6 @@ foreach ($result as $row) {
                                             </select>
                                         </div>
                                     </div>-->
-
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
@@ -1211,8 +1210,6 @@ foreach ($result as $row) {
                                 </div>
                             </div>
                         </form>
-
-
                         <h3>Meta Section</h3>
                         <form class="form-horizontal" action="" method="post">
                             <div class="box box-info">
