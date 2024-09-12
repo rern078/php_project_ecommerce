@@ -32,7 +32,8 @@
       <nav class="humberger__menu__nav mobile-menu">
             <ul>
                   <li class="active"><a href="./index.html">Home</a></li>
-                  <li><a href="/resources/views/shop/shop_grid.php">Shop</a></li>
+                  <!-- <li><a href="/resources/views/shop/shop_grid.php">Shop</a></li> -->
+                  <li><a href="<?php echo getPageFile('shop_grid') ?>">Shop</a></li>
                   <li><a href="#">Pages</a>
                         <ul class="header__menu__dropdown">
                               <li><a href="./shop-details.html">Shop Details</a></li>
@@ -60,7 +61,6 @@
       </div>
 </div>
 <!-- Humberger End -->
-
 <!-- Header Section Begin -->
 <header class="header">
       <div class="header__top">
@@ -110,7 +110,7 @@
                         <nav class="header__menu">
                               <ul>
                                     <li class="active"><a href="./index.html">Home</a></li>
-                                    <li><a href=".">Shop</a></li>
+                                    <li><a href="<?php echo getPageFile('shop_grid') ?>">Shop</a></li>
                                     <li><a href="#">Pages</a>
                                           <ul class="header__menu__dropdown">
                                                 <li><a href="./shop-details.html">Shop Details</a></li>

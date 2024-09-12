@@ -62,6 +62,7 @@ $ecommerce = $_SESSION['Ecommerce'];
 </head>
 
 <body data-pages="<?php echo $pageUrl ?>" data-dir="<?php echo $_SESSION['dir'] ?>">
+      <?php include 'config/pagefiles.php'; ?>
       <?php
       if ($_SESSION['Ecommerce'] == 'ecommerce1') {
             include('config/inc/header/header_ecommerce1.php');
