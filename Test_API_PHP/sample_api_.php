@@ -124,3 +124,43 @@ echo $result;
             }
       }
 </script>
+
+<?php
+// *************************************************************************
+$api_url = 'https://[Log in to view URL]';
+$api_url1 = 'https://[Log in to view URL]';
+$api_url2 = 'https://[Log in to view URL]';
+
+// Read JSON file
+$json_data = file_get_contents($api_url);
+$json_data1 = file_get_contents($api_url1);
+$json_data2 = file_get_contents($api_url2);
+
+// Decode JSON data into PHP array
+$response_data = json_decode($json_data);
+$response_data1 = json_decode($json_data1);
+$response_data2 = json_decode($json_data2);
+
+// All user data exists in 'data' object
+$user_data = $response_data->data;
+$user_data1 = $response_data1->data;
+$user_data2 = $response_data2->data;
+
+// Cut long data into small & select only first 10 records
+//$user_data = array_slice($user_data, 0, 4);
+
+// Print data if need to debug
+//print_r($user_data);
+
+// Traverse array and display user data
+//foreach ($user_data as $key => $value) {
+echo $user_data->email . "\n";
+echo $user_data1->email . "\n";
+echo $user_data2->email . "\n";
+//	echo "<br />";
+//	echo "name: ".$user->employee_age;
+//	echo "<br /> <br />";
+//}
+/*foreach($user_data as $key => $value) {
+  echo $key . " => " . $value . "<br>";
+}*/
