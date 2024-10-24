@@ -2241,7 +2241,7 @@ div.pagination span.disabled {
   top: -3px;
 }
 
-.img_flag{
+.img_flag {
   width: 30px;
 }
 
@@ -2275,10 +2275,47 @@ div.pagination span.disabled {
 /* end dropdown lang  */
 
 
-#st-2 .st-toggle{
+#st-2 .st-toggle {
   height: 50px;
 }
 
-.st-toggle img{
+.st-toggle img {
   margin: 15px 0;
+}
+
+/* pop up  */
+
+.popup-content {
+  position: fixed;
+  z-index: 9999999;
+}
+
+.popup-header {
+  cursor: grab;
+}
+
+.popup-content button i:hover {
+  color: #21527d;
+}
+
+.popup-content button i {
+  font-size: 18px;
+  color: #1c257e;
+}
+
+.popup-content .btn-closed {
+  background: none;
+  border: none;
+  position: absolute;
+  right: -7px;
+  top: -7px;
+}
+
+.description-text {
+  color: red;
+  text-align: center;
+  font-size: 14px;
+  width: 150px;
+  position: absolute;
+  top: 120px;
 }
