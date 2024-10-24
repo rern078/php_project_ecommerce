@@ -441,57 +441,27 @@ foreach ($result as $row) {
 	</div>
 
 	<!-- popup  -->
+
+	<script src="assets/js/drag-banner.js"></script>
 	<?php
 	$statement = $pdo->prepare("SELECT * FROM tbl_popup ORDER BY created_at DESC LIMIT 1");
 	$statement->execute();
 	$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-	foreach ($result as $row) {
+	if (count($result) > 0) {
+		foreach ($result as $row) {
 	?>
-		<div class="popup-label">
-			<div class="popup-content" style="cursor: move;">
-				<div class="popup-header">
-					<button type="button" class="btn-closed" style="float: right;">
-						<i class="fa fa-times-circle"></i>
-					</button>
+			<div class="popup-label" id="popupLabel">
+				<div class="popup-content" id="popupHeader">
+					<div class="popup-header">
+						<button type="button" class="btn-closed">
+							<i class="fa fa-times-circle"></i>
+						</button>
+					</div>
+					<div class="popup-body text-center">
+						<img id="popupImage" src="assets/uploads/<?php echo $row['image_url']; ?>" style="<?= "width:" . $row['width'] . "px;" ?><?= isset($row['height']) ? "height: " . $row['height'] . "px;" : "height: auto;"  ?>" alt="Popup" class="img-fluid">
+					</div>
+					<p class="description-text" class="mt-3"><?= $row['description']; ?></p>
 				</div>
-				<div class="popup-body text-center">
-					<img id="popupImage" src="assets/uploads/<?php echo $row['image_url']; ?>" style="<?= "width:" . $row['width'] . "px;" ?><?= isset($row['height']) ? "height: " . $row['height'] . "px;" : "height: auto;"  ?>" alt="Popup" class="img-fluid">
-				</div>
-				<p class="description-text" class="mt-3"><?= $row['description']; ?></p>
 			</div>
-		</div>
-	<?php } ?>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-	<script>
-		$(document).ready(function() {
-			// $('.popup-label').draggable({
-			// 	handle: '.popup-content',
-			// 	containment: "window"
-			// });
-
-			$(".btn-closed").click(function() {
-				$(".popup-label").fadeOut();
-			});
-
-			if (!sessionStorage.getItem('popupShown')) {
-				$(".popup-label").fadeIn();
-				sessionStorage.setItem('popupShown', 'true');
-			}
-		});
-	</script>
-	<style>
-		/* Ensure the popup has proper positioning */
-		.popup-label {
-			top: 50px;
-			left: 50px;
-			width: 400px;
-			/* Adjust width if needed */
-		}
-
-		/* Add visual feedback to the draggable handle */
-		.popup-content {
-			cursor: move;
-		}
-	</style>
+	<?php }
+	}  ?>

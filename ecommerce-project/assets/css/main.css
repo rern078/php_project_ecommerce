@@ -2284,14 +2284,13 @@ div.pagination span.disabled {
 }
 
 /* pop up  */
-
-.popup-content {
-  position: fixed;
-  z-index: 9999999;
+.popup-label {
+  position: absolute;
+  z-index: 999999;
 }
 
-.popup-header {
-  cursor: grab;
+.popup-content {
+  cursor: move;
 }
 
 .popup-content button i:hover {
